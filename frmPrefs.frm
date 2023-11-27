@@ -1706,8 +1706,7 @@ Private lastFormHeight As Long
 Private Const cFormHeight As Long = 11055
 Private Const cFormWidth  As Long = 9090
 Private topIconWidth As Long
-
-
+Private gblAllowSizeChangeFlg As Boolean
 
 
 '---------------------------------------------------------------------------------------
@@ -3349,6 +3348,13 @@ Private Sub imgWindow_MouseUp(Button As Integer, Shift As Integer, X As Single, 
     Call picButtonMouseUpEvent("window", imgWindow, imgWindowClicked, fraWindow, fraWindowButton)
 End Sub
 
+Private Sub sliGaugeSize_GotFocus()
+    gblAllowSizeChangeFlg = True
+End Sub
+
+Private Sub sliGaugeSize_LostFocus()
+    gblAllowSizeChangeFlg = False
+End Sub
 
 '---------------------------------------------------------------------------------------
 ' Procedure : sliGaugeSize_Change
@@ -3361,8 +3367,8 @@ Private Sub sliGaugeSize_Change()
     On Error GoTo sliGaugeSize_Change_Error
 
     btnSave.Enabled = True ' enable the save button
-    ElementWidget.Zoom = sliGaugeSize.Value / 100
-
+    If gblAllowSizeChangeFlg = True Then ElementWidget.Zoom = sliGaugeSize.Value / 100
+    
     On Error GoTo 0
     Exit Sub
 
