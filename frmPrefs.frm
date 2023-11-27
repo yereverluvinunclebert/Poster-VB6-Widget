@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{BCE37951-37DF-4D69-A8A3-2CFABEE7B3CC}#1.0#0"; "CCRSlider.ocx"
-Begin VB.Form planetPrefs 
+Begin VB.Form posterPrefs 
    AutoRedraw      =   -1  'True
    Caption         =   "Poster Preferences"
    ClientHeight    =   10650
@@ -14,6 +14,183 @@ Begin VB.Form planetPrefs
    ScaleWidth      =   8970
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
+   Begin VB.Frame fraConfig 
+      Caption         =   "Configuration"
+      Height          =   4785
+      Left            =   240
+      TabIndex        =   8
+      Top             =   1200
+      Width           =   7140
+      Begin VB.Frame fraConfigInner 
+         BorderStyle     =   0  'None
+         Height          =   4215
+         Left            =   435
+         TabIndex        =   34
+         Top             =   435
+         Width           =   6450
+         Begin VB.CheckBox chkShowTaskbar 
+            Caption         =   "Show Widget in Taskbar"
+            Height          =   225
+            Left            =   2010
+            TabIndex        =   144
+            ToolTipText     =   "Check the box to show the widget in the taskbar"
+            Top             =   3735
+            Width           =   3405
+         End
+         Begin VB.ComboBox cmbScrollWheelDirection 
+            Height          =   315
+            ItemData        =   "frmPrefs.frx":25CA
+            Left            =   1995
+            List            =   "frmPrefs.frx":25CC
+            Style           =   2  'Dropdown List
+            TabIndex        =   90
+            ToolTipText     =   "To change the direction of the mouse scroll wheel when resiziing the globe gauge."
+            Top             =   1695
+            Width           =   2490
+         End
+         Begin VB.Frame fraAllowShutdowns 
+            BorderStyle     =   0  'None
+            Height          =   1245
+            Left            =   1425
+            TabIndex        =   40
+            Top             =   5370
+            Width           =   4575
+            Begin VB.Label lblConfigurationTab 
+               Height          =   660
+               Index           =   8
+               Left            =   270
+               TabIndex        =   41
+               Top             =   525
+               Width           =   3720
+            End
+         End
+         Begin VB.CheckBox chkEnableBalloonTooltips 
+            Caption         =   "Enable Balloon Tooltips on all Controls *"
+            Height          =   225
+            Left            =   2010
+            TabIndex        =   39
+            ToolTipText     =   "Check the box to enable larger balloon tooltips for all controls on the main program"
+            Top             =   3345
+            Width           =   3405
+         End
+         Begin VB.CheckBox chkEnableTooltips 
+            Caption         =   "Enable Tooltips on all Controls"
+            Height          =   225
+            Left            =   2010
+            TabIndex        =   35
+            ToolTipText     =   "Check the box to enable tooltips for all controls on the main program"
+            Top             =   2910
+            Width           =   3345
+         End
+         Begin vb6projectCCRSlider.Slider sliGaugeSize 
+            Height          =   390
+            Left            =   1920
+            TabIndex        =   98
+            ToolTipText     =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel."
+            Top             =   60
+            Width           =   3870
+            _ExtentX        =   6826
+            _ExtentY        =   688
+            Min             =   5
+            Max             =   220
+            Value           =   100
+            TickFrequency   =   6
+            SelStart        =   20
+         End
+         Begin VB.Label lblConfiguration 
+            Caption         =   "The scroll-wheel resizing direction can be determined here. The direction chosen causes the image to grow. *"
+            Height          =   660
+            Index           =   6
+            Left            =   2025
+            TabIndex        =   123
+            Top             =   2145
+            Width           =   3930
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "180"
+            Height          =   315
+            Index           =   4
+            Left            =   4770
+            TabIndex        =   94
+            Top             =   555
+            Width           =   345
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "130"
+            Height          =   315
+            Index           =   3
+            Left            =   3990
+            TabIndex        =   93
+            Top             =   555
+            Width           =   345
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "50"
+            Height          =   315
+            Index           =   1
+            Left            =   2730
+            TabIndex        =   92
+            Top             =   555
+            Width           =   345
+         End
+         Begin VB.Label lblConfiguration 
+            Caption         =   "Mouse Wheel Resize :"
+            Height          =   345
+            Index           =   3
+            Left            =   255
+            TabIndex        =   91
+            ToolTipText     =   "To change the direction of the mouse scroll wheel when resiziing the globe gauge."
+            Top             =   1740
+            Width           =   2055
+         End
+         Begin VB.Label lblConfiguration 
+            Caption         =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel. Immediate. *"
+            Height          =   555
+            Index           =   2
+            Left            =   2070
+            TabIndex        =   89
+            ToolTipText     =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel."
+            Top             =   870
+            Width           =   3810
+         End
+         Begin VB.Label lblConfiguration 
+            Caption         =   "Gauge Size :"
+            Height          =   315
+            Index           =   1
+            Left            =   885
+            TabIndex        =   88
+            Top             =   105
+            Width           =   975
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "90"
+            Height          =   315
+            Index           =   2
+            Left            =   3345
+            TabIndex        =   87
+            Top             =   555
+            Width           =   840
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "220 (%)"
+            Height          =   315
+            Index           =   5
+            Left            =   5385
+            TabIndex        =   86
+            Top             =   555
+            Width           =   735
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "5"
+            Height          =   315
+            Index           =   0
+            Left            =   1980
+            TabIndex        =   85
+            Top             =   555
+            Width           =   345
+         End
+      End
+   End
    Begin VB.Frame fraPosition 
       Caption         =   "Position"
       Height          =   7440
@@ -71,9 +248,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbWidgetLandscape 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":25CA
+            ItemData        =   "frmPrefs.frx":25CE
             Left            =   2250
-            List            =   "frmPrefs.frx":25CC
+            List            =   "frmPrefs.frx":25D0
             Style           =   2  'Dropdown List
             TabIndex        =   75
             ToolTipText     =   "Choose the alarm sound."
@@ -82,9 +259,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbWidgetPortrait 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":25CE
+            ItemData        =   "frmPrefs.frx":25D2
             Left            =   2250
-            List            =   "frmPrefs.frx":25D0
+            List            =   "frmPrefs.frx":25D4
             Style           =   2  'Dropdown List
             TabIndex        =   72
             ToolTipText     =   "Choose the alarm sound."
@@ -93,9 +270,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbWidgetPosition 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":25D2
+            ItemData        =   "frmPrefs.frx":25D6
             Left            =   2265
-            List            =   "frmPrefs.frx":25D4
+            List            =   "frmPrefs.frx":25D8
             Style           =   2  'Dropdown List
             TabIndex        =   69
             ToolTipText     =   "Choose the alarm sound."
@@ -104,9 +281,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbAspectHidden 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":25D6
+            ItemData        =   "frmPrefs.frx":25DA
             Left            =   2265
-            List            =   "frmPrefs.frx":25D8
+            List            =   "frmPrefs.frx":25DC
             Style           =   2  'Dropdown List
             TabIndex        =   66
             ToolTipText     =   "Choose the alarm sound."
@@ -192,7 +369,7 @@ Begin VB.Form planetPrefs
             Width           =   2205
          End
          Begin VB.Label lblPosition 
-            Caption         =   $"frmPrefs.frx":25DA
+            Caption         =   $"frmPrefs.frx":25DE
             Height          =   3120
             Index           =   12
             Left            =   5145
@@ -212,7 +389,7 @@ Begin VB.Form planetPrefs
             Width           =   2040
          End
          Begin VB.Label lblPosition 
-            Caption         =   $"frmPrefs.frx":27AC
+            Caption         =   $"frmPrefs.frx":27B0
             Height          =   705
             Index           =   10
             Left            =   2250
@@ -232,13 +409,13 @@ Begin VB.Form planetPrefs
             Width           =   2355
          End
          Begin VB.Label lblPosition 
-            Caption         =   $"frmPrefs.frx":284B
+            Caption         =   $"frmPrefs.frx":284F
             Height          =   3045
             Index           =   6
             Left            =   2265
             TabIndex        =   68
             Tag             =   "lblAlarmSoundDesc"
-            ToolTipText     =   $"frmPrefs.frx":29E7
+            ToolTipText     =   $"frmPrefs.frx":29EB
             Top             =   450
             Width           =   5175
          End
@@ -291,12 +468,12 @@ Begin VB.Form planetPrefs
                Left            =   1440
                TabIndex        =   139
                Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-               ToolTipText     =   $"frmPrefs.frx":2B8C
+               ToolTipText     =   $"frmPrefs.frx":2B90
                Top             =   195
                Width           =   3660
             End
             Begin VB.Label lblDebug 
-               Caption         =   $"frmPrefs.frx":2C1E
+               Caption         =   $"frmPrefs.frx":2C22
                Height          =   930
                Index           =   9
                Left            =   1545
@@ -315,7 +492,7 @@ Begin VB.Form planetPrefs
                Width           =   1350
             End
             Begin VB.Label lblGitHub 
-               Caption         =   $"frmPrefs.frx":2CC2
+               Caption         =   $"frmPrefs.frx":2CC6
                ForeColor       =   &H8000000D&
                Height          =   885
                Left            =   1530
@@ -353,9 +530,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbDebug 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":2D57
+            ItemData        =   "frmPrefs.frx":2D5B
             Left            =   1530
-            List            =   "frmPrefs.frx":2D59
+            List            =   "frmPrefs.frx":2D5D
             Style           =   2  'Dropdown List
             TabIndex        =   56
             ToolTipText     =   "Choose to set debug mode."
@@ -448,7 +625,7 @@ Begin VB.Form planetPrefs
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   117
-         Text            =   "frmPrefs.frx":2D5B
+         Text            =   "frmPrefs.frx":2D5F
          Top             =   2205
          Width           =   8010
       End
@@ -865,7 +1042,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgSounds 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":3D12
+         Picture         =   "frmPrefs.frx":3D16
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -873,7 +1050,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgSoundsClicked 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":42D1
+         Picture         =   "frmPrefs.frx":42D5
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -926,7 +1103,7 @@ Begin VB.Form planetPrefs
                Width           =   720
             End
             Begin VB.Label lblWindowLevel 
-               Caption         =   $"frmPrefs.frx":4710
+               Caption         =   $"frmPrefs.frx":4714
                Height          =   975
                Index           =   1
                Left            =   855
@@ -940,7 +1117,7 @@ Begin VB.Form planetPrefs
             Left            =   1305
             Style           =   2  'Dropdown List
             TabIndex        =   17
-            ToolTipText     =   $"frmPrefs.frx":47B3
+            ToolTipText     =   $"frmPrefs.frx":47B7
             Top             =   0
             Width           =   3720
          End
@@ -1110,7 +1287,7 @@ Begin VB.Form planetPrefs
             Width           =   4035
          End
          Begin VB.Label lblFontsTab 
-            Caption         =   $"frmPrefs.frx":4840
+            Caption         =   $"frmPrefs.frx":4844
             Height          =   900
             Index           =   0
             Left            =   1665
@@ -1194,7 +1371,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgAbout 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":48FB
+         Picture         =   "frmPrefs.frx":48FF
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1202,7 +1379,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgAboutClicked 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":4E83
+         Picture         =   "frmPrefs.frx":4E87
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1227,7 +1404,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgConfig 
          Height          =   600
          Left            =   165
-         Picture         =   "frmPrefs.frx":536E
+         Picture         =   "frmPrefs.frx":5372
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1235,7 +1412,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgConfigClicked 
          Height          =   600
          Left            =   165
-         Picture         =   "frmPrefs.frx":594D
+         Picture         =   "frmPrefs.frx":5951
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1259,7 +1436,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgDevelopment 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":5E48
+         Picture         =   "frmPrefs.frx":5E4C
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1267,7 +1444,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgDevelopmentClicked 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":6400
+         Picture         =   "frmPrefs.frx":6404
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1292,7 +1469,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgPosition 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":6786
+         Picture         =   "frmPrefs.frx":678A
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1300,7 +1477,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgPositionClicked 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":6D57
+         Picture         =   "frmPrefs.frx":6D5B
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1361,7 +1538,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgWindow 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":70F5
+         Picture         =   "frmPrefs.frx":70F9
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1369,7 +1546,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgWindowClicked 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":75BF
+         Picture         =   "frmPrefs.frx":75C3
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1393,7 +1570,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgFonts 
          Height          =   600
          Left            =   180
-         Picture         =   "frmPrefs.frx":796B
+         Picture         =   "frmPrefs.frx":796F
          Stretch         =   -1  'True
          Top             =   195
          Width           =   600
@@ -1401,7 +1578,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgFontsClicked 
          Height          =   600
          Left            =   180
-         Picture         =   "frmPrefs.frx":7EC1
+         Picture         =   "frmPrefs.frx":7EC5
          Stretch         =   -1  'True
          Top             =   195
          Width           =   600
@@ -1425,7 +1602,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgGeneral 
          Height          =   600
          Left            =   165
-         Picture         =   "frmPrefs.frx":835A
+         Picture         =   "frmPrefs.frx":835E
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -1433,187 +1610,10 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgGeneralClicked 
          Height          =   600
          Left            =   165
-         Picture         =   "frmPrefs.frx":87B6
+         Picture         =   "frmPrefs.frx":87BA
          Stretch         =   -1  'True
          Top             =   240
          Width           =   600
-      End
-   End
-   Begin VB.Frame fraConfig 
-      Caption         =   "Configuration"
-      Height          =   4785
-      Left            =   240
-      TabIndex        =   8
-      Top             =   1200
-      Width           =   7140
-      Begin VB.Frame fraConfigInner 
-         BorderStyle     =   0  'None
-         Height          =   4215
-         Left            =   435
-         TabIndex        =   34
-         Top             =   435
-         Width           =   6450
-         Begin VB.CheckBox chkShowTaskbar 
-            Caption         =   "Show Widget in Taskbar"
-            Height          =   225
-            Left            =   2010
-            TabIndex        =   144
-            ToolTipText     =   "Check the box to show the widget in the taskbar"
-            Top             =   3735
-            Width           =   3405
-         End
-         Begin VB.ComboBox cmbScrollWheelDirection 
-            Height          =   315
-            ItemData        =   "frmPrefs.frx":8A89
-            Left            =   1995
-            List            =   "frmPrefs.frx":8A8B
-            Style           =   2  'Dropdown List
-            TabIndex        =   90
-            ToolTipText     =   "To change the direction of the mouse scroll wheel when resiziing the globe gauge."
-            Top             =   1695
-            Width           =   2490
-         End
-         Begin VB.Frame fraAllowShutdowns 
-            BorderStyle     =   0  'None
-            Height          =   1245
-            Left            =   1425
-            TabIndex        =   40
-            Top             =   5370
-            Width           =   4575
-            Begin VB.Label lblConfigurationTab 
-               Height          =   660
-               Index           =   8
-               Left            =   270
-               TabIndex        =   41
-               Top             =   525
-               Width           =   3720
-            End
-         End
-         Begin VB.CheckBox chkEnableBalloonTooltips 
-            Caption         =   "Enable Balloon Tooltips on all Controls *"
-            Height          =   225
-            Left            =   2010
-            TabIndex        =   39
-            ToolTipText     =   "Check the box to enable larger balloon tooltips for all controls on the main program"
-            Top             =   3345
-            Width           =   3405
-         End
-         Begin VB.CheckBox chkEnableTooltips 
-            Caption         =   "Enable Tooltips on all Controls"
-            Height          =   225
-            Left            =   2010
-            TabIndex        =   35
-            ToolTipText     =   "Check the box to enable tooltips for all controls on the main program"
-            Top             =   2910
-            Width           =   3345
-         End
-         Begin vb6projectCCRSlider.Slider sliGaugeSize 
-            Height          =   390
-            Left            =   1920
-            TabIndex        =   98
-            ToolTipText     =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel."
-            Top             =   60
-            Width           =   3870
-            _ExtentX        =   6826
-            _ExtentY        =   688
-            Min             =   5
-            Max             =   220
-            Value           =   100
-            TickFrequency   =   6
-            SelStart        =   20
-         End
-         Begin VB.Label lblConfiguration 
-            Caption         =   "The scroll-wheel resizing direction can be determined here. The direction chosen causes the image to grow. *"
-            Height          =   660
-            Index           =   6
-            Left            =   2025
-            TabIndex        =   123
-            Top             =   2145
-            Width           =   3930
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "180"
-            Height          =   315
-            Index           =   4
-            Left            =   4770
-            TabIndex        =   94
-            Top             =   555
-            Width           =   345
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "130"
-            Height          =   315
-            Index           =   3
-            Left            =   3990
-            TabIndex        =   93
-            Top             =   555
-            Width           =   345
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "50"
-            Height          =   315
-            Index           =   1
-            Left            =   2730
-            TabIndex        =   92
-            Top             =   555
-            Width           =   345
-         End
-         Begin VB.Label lblConfiguration 
-            Caption         =   "Mouse Wheel Resize :"
-            Height          =   345
-            Index           =   3
-            Left            =   255
-            TabIndex        =   91
-            ToolTipText     =   "To change the direction of the mouse scroll wheel when resiziing the globe gauge."
-            Top             =   1740
-            Width           =   2055
-         End
-         Begin VB.Label lblConfiguration 
-            Caption         =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel. Immediate. *"
-            Height          =   555
-            Index           =   2
-            Left            =   2070
-            TabIndex        =   89
-            ToolTipText     =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel."
-            Top             =   870
-            Width           =   3810
-         End
-         Begin VB.Label lblConfiguration 
-            Caption         =   "Gauge Size :"
-            Height          =   315
-            Index           =   1
-            Left            =   885
-            TabIndex        =   88
-            Top             =   105
-            Width           =   975
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "90"
-            Height          =   315
-            Index           =   2
-            Left            =   3345
-            TabIndex        =   87
-            Top             =   555
-            Width           =   840
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "220 (%)"
-            Height          =   315
-            Index           =   5
-            Left            =   5385
-            TabIndex        =   86
-            Top             =   555
-            Width           =   735
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "5"
-            Height          =   315
-            Index           =   0
-            Left            =   1980
-            TabIndex        =   85
-            Top             =   555
-            Width           =   345
-         End
       End
    End
    Begin VB.Label lblAsterix 
@@ -1662,14 +1662,14 @@ Begin VB.Form planetPrefs
       End
    End
 End
-Attribute VB_Name = "planetPrefs"
+Attribute VB_Name = "posterPrefs"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 '---------------------------------------------------------------------------------------
-' Module    : planetPrefs
+' Module    : posterPrefs
 ' Author    : beededea
 ' Date      : 17/08/2022
 ' Purpose   : VB6 standard form to display the prefs
@@ -1733,7 +1733,7 @@ Private Sub chkShowTaskbar_Click()
 
 chkShowTaskbar_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkShowTaskbar_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkShowTaskbar_Click of Form posterPrefs"
 End Sub
 
 
@@ -1791,7 +1791,7 @@ Private Sub Form_Load()
 
 Form_Load_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Load of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Load of Form posterPrefs"
 
 End Sub
 
@@ -1819,7 +1819,7 @@ Private Sub btnAboutDebugInfo_Click()
 
 btnAboutDebugInfo_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnAboutDebugInfo_Click of form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnAboutDebugInfo_Click of form posterPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -1839,7 +1839,7 @@ Private Sub btnDonate_Click()
 
 btnDonate_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnDonate_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnDonate_Click of Form posterPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -1861,7 +1861,7 @@ Private Sub btnFacebook_Click()
 
 btnFacebook_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnFacebook_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnFacebook_Click of Form posterPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -1905,7 +1905,7 @@ btnOpenFile_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnOpenFile_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnOpenFile_Click of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -1930,12 +1930,11 @@ Private Sub btnUpdate_Click()
 
 btnUpdate_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnUpdate_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnUpdate_Click of Form posterPrefs"
 End Sub
 
 Private Sub chkGaugeFunctions_Click()
     btnSave.Enabled = True ' enable the save button
-    ' planetWidget.Rotating = chkGaugeFunctions.Value
 End Sub
 
 Private Sub chkGenStartup_Click()
@@ -1985,7 +1984,7 @@ btnDefaultEditor_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnDefaultEditor_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnDefaultEditor_Click of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -2014,7 +2013,7 @@ Private Sub chkEnableBalloonTooltips_Click()
 
 chkEnableBalloonTooltips_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkEnableBalloonTooltips_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkEnableBalloonTooltips_Click of Form posterPrefs"
 End Sub
 
 
@@ -2041,7 +2040,7 @@ Private Sub chkIgnoreMouse_Click()
 
 chkIgnoreMouse_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkIgnoreMouse_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkIgnoreMouse_Click of Form posterPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -2057,7 +2056,7 @@ Private Sub chkPreventDragging_Click()
     btnSave.Enabled = True ' enable the save button
     ' immediately make the widget locked in place
     If chkPreventDragging.Value = 0 Then
-        planetWidget.Locked = 0
+        ElementWidget.Locked = 0
         gblPlPreventDragging = "0"
         menuForm.mnuLockWidget.Checked = False
         If aspectRatio = "landscape" Then
@@ -2068,15 +2067,15 @@ Private Sub chkPreventDragging_Click()
             txtPortraitYoffset.Text = vbNullString
         End If
     Else
-        planetWidget.Locked = 1
+        ElementWidget.Locked = 1
         gblPlPreventDragging = "1"
         menuForm.mnuLockWidget.Checked = True
         If aspectRatio = "landscape" Then
-            txtLandscapeHoffset.Text = fMain.planetForm.Left
-            txtLandscapeVoffset.Text = fMain.planetForm.Top
+            txtLandscapeHoffset.Text = fMain.ElementForm.Left
+            txtLandscapeVoffset.Text = fMain.ElementForm.Top
         Else
-            txtPortraitHoffset.Text = fMain.planetForm.Left
-            txtPortraitYoffset.Text = fMain.planetForm.Top
+            txtPortraitHoffset.Text = fMain.ElementForm.Left
+            txtPortraitYoffset.Text = fMain.ElementForm.Top
         End If
     End If
 
@@ -2087,7 +2086,7 @@ chkPreventDragging_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkPreventDragging_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkPreventDragging_Click of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -2107,18 +2106,18 @@ Private Sub chkWidgetHidden_Click()
    On Error GoTo chkWidgetHidden_Click_Error
 
     If chkWidgetHidden.Value = 0 Then
-        planetWidget.Hidden = False
+        ElementWidget.Hidden = False
 
         frmTimer.revealWidgetTimer.Enabled = False
         gblPlWidgetHidden = "0"
     Else
-        planetWidget.Hidden = True
+        ElementWidget.Hidden = True
 
         frmTimer.revealWidgetTimer.Enabled = True
         gblPlWidgetHidden = "1"
     End If
     
-    sPutINISetting softwarePlanet, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
+    sPutINISetting softwareElement, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
     
     btnSave.Enabled = True ' enable the save button
 
@@ -2127,7 +2126,7 @@ Private Sub chkWidgetHidden_Click()
 
 chkWidgetHidden_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkWidgetHidden_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkWidgetHidden_Click of Form posterPrefs"
 
 End Sub
 
@@ -2143,13 +2142,13 @@ Private Sub cmbAspectHidden_Click()
    On Error GoTo cmbAspectHidden_Click_Error
 
     If cmbAspectHidden.ListIndex = 1 And aspectRatio = "portrait" Then
-        planetWidget.Hidden = True
+        ElementWidget.Hidden = True
 
     ElseIf cmbAspectHidden.ListIndex = 2 And aspectRatio = "landscape" Then
-        planetWidget.Hidden = True
+        ElementWidget.Hidden = True
 
     Else
-        planetWidget.Hidden = False
+        ElementWidget.Hidden = False
     End If
 
     btnSave.Enabled = True ' enable the save button
@@ -2159,7 +2158,7 @@ Private Sub cmbAspectHidden_Click()
 
 cmbAspectHidden_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbAspectHidden_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbAspectHidden_Click of Form posterPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -2174,7 +2173,7 @@ Private Sub cmbDebug_Click()
 
     btnSave.Enabled = True ' enable the save button
     If cmbDebug.ListIndex = 0 Then
-        txtDefaultEditor.Text = "eg. E:\vb6\planet Widget VB6\planet Widget.vbp"
+        txtDefaultEditor.Text = "eg. E:\vb6\Element Widget VB6\Element Widget.vbp"
         txtDefaultEditor.Enabled = False
         lblDebug(7).Enabled = False
         btnDefaultEditor.Enabled = False
@@ -2194,7 +2193,7 @@ cmbDebug_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbDebug_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbDebug_Click of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -2221,14 +2220,14 @@ Private Sub cmbScrollWheelDirection_Click()
    On Error GoTo cmbScrollWheelDirection_Click_Error
 
     btnSave.Enabled = True ' enable the save button
-    planetWidget.ZoomDirection = cmbScrollWheelDirection.List(cmbScrollWheelDirection.ListIndex)
+    ElementWidget.ZoomDirection = cmbScrollWheelDirection.List(cmbScrollWheelDirection.ListIndex)
 
    On Error GoTo 0
    Exit Sub
 
 cmbScrollWheelDirection_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbScrollWheelDirection_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbScrollWheelDirection_Click of Form posterPrefs"
 End Sub
 
 Private Sub cmbWidgetLandscape_Click()
@@ -2276,7 +2275,7 @@ cmbWidgetPosition_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbWidgetPosition_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbWidgetPosition_Click of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -2313,7 +2312,7 @@ IsVisible_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure IsVisible of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure IsVisible of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -2345,7 +2344,7 @@ Private Sub showLastTab()
 
 showLastTab_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure showLastTab of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure showLastTab of Form posterPrefs"
 
 End Sub
 
@@ -2391,7 +2390,7 @@ Private Sub positionPrefsFramesButtons()
     rightHandAlignment = fraAboutButton.Left + fraAboutButton.Width ' use final button rightmost as reference
     frameWidth = rightHandAlignment - frameLeft
     fraScrollbarCover.Left = rightHandAlignment - 690
-    planetPrefs.Width = rightHandAlignment + leftHandGutterWidth + 75 ' (not quite sure why we need the 75 twips padding)
+    posterPrefs.Width = rightHandAlignment + leftHandGutterWidth + 75 ' (not quite sure why we need the 75 twips padding)
     
     ' align the top buttons
     fraGeneralButton.Top = buttonTop
@@ -2466,8 +2465,8 @@ Private Sub positionPrefsFramesButtons()
     
     ' set the height of the form itself
 '    If dynamicSizingFlg = False Then
-'        planetPrefs.Height = btnHelp.Top + btnHelp.Height + 600
-'        lastFormHeight = planetPrefs.Height
+'        posterPrefs.Height = btnHelp.Top + btnHelp.Height + 600
+'        lastFormHeight = posterPrefs.Height
 '    End If
 
    On Error GoTo 0
@@ -2475,7 +2474,7 @@ Private Sub positionPrefsFramesButtons()
 
 positionPrefsFramesButtons_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure positionPrefsFramesButtons of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure positionPrefsFramesButtons of Form posterPrefs"
 
 End Sub
 
@@ -2492,7 +2491,7 @@ Private Sub btnCancel_Click()
    On Error GoTo btnCancel_Click_Error
 
     btnSave.Enabled = False ' disable the save button
-    planetPrefs.themeTimer.Enabled = False
+    posterPrefs.themeTimer.Enabled = False
 
     Unload Me
 
@@ -2501,7 +2500,7 @@ Private Sub btnCancel_Click()
 
 btnCancel_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnCancel_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnCancel_Click of Form posterPrefs"
 End Sub
 '
 '---------------------------------------------------------------------------------------
@@ -2518,7 +2517,7 @@ Private Sub btnHelp_Click()
         If fFExists(App.Path & "\help\Help.chm") Then
             Call ShellExecute(Me.hwnd, "Open", App.Path & "\help\Help.chm", vbNullString, App.Path, 1)
         Else
-            MsgBox ("%Err-I-ErrorNumber 11 - The help file - planet Help.html - is missing from the help folder.")
+            MsgBox ("%Err-I-ErrorNumber 11 - The help file - Element Help.html - is missing from the help folder.")
         End If
 
    On Error GoTo 0
@@ -2526,7 +2525,7 @@ Private Sub btnHelp_Click()
 
 btnHelp_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnHelp_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnHelp_Click of Form posterPrefs"
 End Sub
 '
 '---------------------------------------------------------------------------------------
@@ -2602,55 +2601,55 @@ Private Sub btnSave_Click()
     gblPlDefaultEditor = txtDefaultEditor.Text
             
     If gblPlStartup = "1" Then
-        Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "PosterWidget", """" & App.Path & "\" & "Poster.exe""")
+        Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "posterPrefs", """" & App.Path & "\" & "Poster.exe""")
     Else
-        Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "PosterWidget", vbNullString)
+        Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "posterPrefs", vbNullString)
     End If
 
     ' save the values from the general tab
     If fFExists(gblPlSettingsFile) Then
-        sPutINISetting softwarePlanet, "enableTooltips", gblPlEnableTooltips, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "enableBalloonTooltips", gblPlEnableBalloonTooltips, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "showTaskbar", gblPlShowTaskbar, gblPlSettingsFile
+        sPutINISetting softwareElement, "enableTooltips", gblPlEnableTooltips, gblPlSettingsFile
+        sPutINISetting softwareElement, "enableBalloonTooltips", gblPlEnableBalloonTooltips, gblPlSettingsFile
+        sPutINISetting softwareElement, "showTaskbar", gblPlShowTaskbar, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "gaugeSize", gblPlGaugeSize, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "scrollWheelDirection", gblPlScrollWheelDirection, gblPlSettingsFile
+        sPutINISetting softwareElement, "gaugeSize", gblPlGaugeSize, gblPlSettingsFile
+        sPutINISetting softwareElement, "scrollWheelDirection", gblPlScrollWheelDirection, gblPlSettingsFile
                 
-        sPutINISetting softwarePlanet, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "planetSelection", gblPlanetSelection, gblPlSettingsFile
-        'sPutINISetting softwarePlanet, "widgetSkew", 'PrWidgetSkew, gblPlSettingsFile
+        sPutINISetting softwareElement, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
+        sPutINISetting softwareElement, "ElementSelection", gblElementSelection, gblPlSettingsFile
+        'sPutINISetting softwareElement, "widgetSkew", 'PrWidgetSkew, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "aspectHidden", gblPlAspectHidden, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "widgetPosition", gblPlWidgetPosition, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "widgetLandscape", gblPlWidgetLandscape, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "widgetPortrait", gblPlWidgetPortrait, gblPlSettingsFile
+        sPutINISetting softwareElement, "aspectHidden", gblPlAspectHidden, gblPlSettingsFile
+        sPutINISetting softwareElement, "widgetPosition", gblPlWidgetPosition, gblPlSettingsFile
+        sPutINISetting softwareElement, "widgetLandscape", gblPlWidgetLandscape, gblPlSettingsFile
+        sPutINISetting softwareElement, "widgetPortrait", gblPlWidgetPortrait, gblPlSettingsFile
 
-        sPutINISetting softwarePlanet, "prefsFont", gblPlPrefsFont, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontSize", gblPlPrefsFontSize, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontItalics", gblPlPrefsFontItalics, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontColour", gblPlPrefsFontColour, gblPlSettingsFile
+        sPutINISetting softwareElement, "prefsFont", gblPlPrefsFont, gblPlSettingsFile
+        sPutINISetting softwareElement, "prefsFontSize", gblPlPrefsFontSize, gblPlSettingsFile
+        sPutINISetting softwareElement, "prefsFontItalics", gblPlPrefsFontItalics, gblPlSettingsFile
+        sPutINISetting softwareElement, "prefsFontColour", gblPlPrefsFontColour, gblPlSettingsFile
 
         'save the values from the Windows Config Items
-        sPutINISetting softwarePlanet, "windowLevel", gblPlWindowLevel, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "preventDragging", gblPlPreventDragging, gblPlSettingsFile
+        sPutINISetting softwareElement, "windowLevel", gblPlWindowLevel, gblPlSettingsFile
+        sPutINISetting softwareElement, "preventDragging", gblPlPreventDragging, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "opacity", gblPlOpacity, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "hidingTime", gblPlHidingTime, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "ignoreMouse", gblPlIgnoreMouse, gblPlSettingsFile
+        sPutINISetting softwareElement, "opacity", gblPlOpacity, gblPlSettingsFile
+        sPutINISetting softwareElement, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
+        sPutINISetting softwareElement, "hidingTime", gblPlHidingTime, gblPlSettingsFile
+        sPutINISetting softwareElement, "ignoreMouse", gblPlIgnoreMouse, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "startup", gblPlStartup, gblPlSettingsFile
+        sPutINISetting softwareElement, "startup", gblPlStartup, gblPlSettingsFile
 
-        sPutINISetting softwarePlanet, "enableSounds", gblPlEnableSounds, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "lastSelectedTab", gblPlLastSelectedTab, gblPlSettingsFile
+        sPutINISetting softwareElement, "enableSounds", gblPlEnableSounds, gblPlSettingsFile
+        sPutINISetting softwareElement, "lastSelectedTab", gblPlLastSelectedTab, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "debug", gblPlDebug, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "dblClickCommand", gblPlDblClickCommand, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "openFile", gblPlOpenFile, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "defaultEditor", gblPlDefaultEditor, gblPlSettingsFile
+        sPutINISetting softwareElement, "debug", gblPlDebug, gblPlSettingsFile
+        sPutINISetting softwareElement, "dblClickCommand", gblPlDblClickCommand, gblPlSettingsFile
+        sPutINISetting softwareElement, "openFile", gblPlOpenFile, gblPlSettingsFile
+        sPutINISetting softwareElement, "defaultEditor", gblPlDefaultEditor, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
+        sPutINISetting softwareElement, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
+        sPutINISetting softwareElement, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
 
         'save the values from the Text Items
 
@@ -2661,10 +2660,10 @@ Private Sub btnSave_Click()
     ' set the tooltips on the prefs screen
     Call setPrefsTooltips
 
-    ' sets the characteristics of the planet and menus immediately after saving
+    ' sets the characteristics of the Element and menus immediately after saving
     Call adjustMainControls
     
-    planetPrefs.SetFocus
+    posterPrefs.SetFocus
     btnSave.Enabled = False ' disable the save button showing it has successfully saved
     
    On Error GoTo 0
@@ -2672,7 +2671,7 @@ Private Sub btnSave_Click()
 
 btnSave_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnSave_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnSave_Click of Form posterPrefs"
 
 End Sub
 
@@ -2719,7 +2718,7 @@ Private Sub btnPrefsFont_Click()
     fntItalics = CBool(gblPlPrefsFontItalics)
     fntColour = CLng(gblPlPrefsFontColour)
         
-    Call changeFont(planetPrefs, True, fntFont, fntSize, fntWeight, fntStyle, fntColour, fntItalics, fntUnderline, fntFontResult)
+    Call changeFont(posterPrefs, True, fntFont, fntSize, fntWeight, fntStyle, fntColour, fntItalics, fntUnderline, fntFontResult)
     
     gblPlPrefsFont = CStr(fntFont)
     gblPlPrefsFontSize = CStr(fntSize)
@@ -2727,10 +2726,10 @@ Private Sub btnPrefsFont_Click()
     gblPlPrefsFontColour = CStr(fntColour)
 
     If fFExists(gblPlSettingsFile) Then ' does the tool's own settings.ini exist?
-        sPutINISetting softwarePlanet, "prefsFont", gblPlPrefsFont, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontSize", gblPlPrefsFontSize, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontItalics", gblPlPrefsFontItalics, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "PrefsFontColour", gblPlPrefsFontColour, gblPlSettingsFile
+        sPutINISetting softwareElement, "prefsFont", gblPlPrefsFont, gblPlSettingsFile
+        sPutINISetting softwareElement, "prefsFontSize", gblPlPrefsFontSize, gblPlSettingsFile
+        sPutINISetting softwareElement, "prefsFontItalics", gblPlPrefsFontItalics, gblPlSettingsFile
+        sPutINISetting softwareElement, "PrefsFontColour", gblPlPrefsFontColour, gblPlSettingsFile
     End If
     
     If fntFont = vbNullString Then fntFont = "arial"
@@ -2747,7 +2746,7 @@ Private Sub btnPrefsFont_Click()
 
 btnPrefsFont_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnPrefsFont_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnPrefsFont_Click of Form posterPrefs"
 
 End Sub
 
@@ -2798,7 +2797,7 @@ Private Sub adjustPrefsControls()
     txtDefaultEditor.Text = gblPlDefaultEditor
     
     If gblPlPrefsFont <> vbNullString Then
-        Call changeFormFont(planetPrefs, gblPlPrefsFont, Val(gblPlPrefsFontSize), fntWeight, fntStyle, gblPlPrefsFontItalics, gblPlPrefsFontColour)
+        Call changeFormFont(posterPrefs, gblPlPrefsFont, Val(gblPlPrefsFontSize), fntWeight, fntStyle, gblPlPrefsFontItalics, gblPlPrefsFontColour)
     End If
        
     ' fonts tab
@@ -2811,13 +2810,13 @@ Private Sub adjustPrefsControls()
         
     If gblPlPreventDragging = "1" Then
         If aspectRatio = "landscape" Then
-            txtLandscapeHoffset.Text = fMain.planetForm.Left
-            txtLandscapeVoffset.Text = fMain.planetForm.Top
+            txtLandscapeHoffset.Text = fMain.ElementForm.Left
+            txtLandscapeVoffset.Text = fMain.ElementForm.Top
             txtLandscapeHoffset.ToolTipText = "Last Sampled Form X Horizontal Position : " & gblPlMaximiseFormX & "px"
             txtLandscapeVoffset.ToolTipText = "Last Sampled Form Y Vertical Position : " & gblPlMaximiseFormY & "px"
         Else
-            txtPortraitHoffset.Text = fMain.planetForm.Left
-            txtPortraitYoffset.Text = fMain.planetForm.Top
+            txtPortraitHoffset.Text = fMain.ElementForm.Left
+            txtPortraitYoffset.Text = fMain.ElementForm.Top
             txtPortraitHoffset.ToolTipText = "Last Sampled Form X Horizontal Position : " & gblPlMaximiseFormX & "px"
             txtPortraitYoffset.ToolTipText = "Last Sampled Form Y Vertical Position : " & gblPlMaximiseFormY & "px"
         End If
@@ -2845,7 +2844,7 @@ Private Sub adjustPrefsControls()
 
 adjustPrefsControls_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustPrefsControls of Form planetPrefs on line " & Erl
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustPrefsControls of Form posterPrefs on line " & Erl
 
 End Sub
 '
@@ -2923,7 +2922,7 @@ populatePrefsComboBoxes_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populatePrefsComboBoxes of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populatePrefsComboBoxes of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -2965,7 +2964,7 @@ Private Sub clearBorderStyle()
 
 clearBorderStyle_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure clearBorderStyle of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure clearBorderStyle of Form posterPrefs"
 
 End Sub
 
@@ -3008,7 +3007,7 @@ Form_Resize_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Resize of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Resize of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -3035,7 +3034,7 @@ Private Sub Form_Unload(Cancel As Integer)
 
 Form_Unload_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Unload of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Unload of Form posterPrefs"
 End Sub
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     fraScrollbarCover.Visible = True
@@ -3057,7 +3056,7 @@ Private Sub fraConfigInner_MouseDown(Button As Integer, Shift As Integer, X As S
     End If
 End Sub
 Private Sub fraConfigInner_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If gblPlEnableTooltips = "1" Then CreateToolTip fraConfigInner.hwnd, "The configuration panel is the location for optional configuration items. These items change how planet operates, configure them to suit your needs and your mode of operation.", _
+    If gblPlEnableTooltips = "1" Then CreateToolTip fraConfigInner.hwnd, "The configuration panel is the location for optional configuration items. These items change how Element operates, configure them to suit your needs and your mode of operation.", _
                   TTIconInfo, "Help on Configuration", , , , True
 
 End Sub
@@ -3067,7 +3066,7 @@ Private Sub fraConfig_MouseDown(Button As Integer, Shift As Integer, X As Single
     End If
 End Sub
 Private Sub fraConfig_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If gblPlEnableTooltips = "1" Then CreateToolTip fraConfig.hwnd, "The configuration panel is the location for optional configuration items. These items change how planet operates, configure them to suit your needs and your mode of operation.", _
+    If gblPlEnableTooltips = "1" Then CreateToolTip fraConfig.hwnd, "The configuration panel is the location for optional configuration items. These items change how Element operates, configure them to suit your needs and your mode of operation.", _
                   TTIconInfo, "Help on Configuration", , , , True
 
 End Sub
@@ -3214,7 +3213,7 @@ Private Sub imgGeneral_Click()
 
 imgGeneral_Click_Error:
 
-     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure imgGeneral_Click of Form planetPrefs"
+     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure imgGeneral_Click of Form posterPrefs"
 End Sub
 
 Private Sub imgGeneral_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -3245,7 +3244,7 @@ Private Sub lblGitHub_dblClick()
 
 lblGitHub_dblClick_Error:
 
-     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure lblGitHub_dblClick of Form planetPrefs"
+     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure lblGitHub_dblClick of Form posterPrefs"
 End Sub
 
 Private Sub lblGitHub_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -3273,7 +3272,7 @@ Private Sub txtAboutText_MouseDown(Button As Integer, Shift As Integer, X As Sin
 
 txtAboutText_MouseDown_Error:
 
-     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure txtAboutText_MouseDown of Form planetPrefs"
+     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure txtAboutText_MouseDown of Form posterPrefs"
 End Sub
 
 Private Sub txtAboutText_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -3362,14 +3361,14 @@ Private Sub sliGaugeSize_Change()
     On Error GoTo sliGaugeSize_Change_Error
 
     btnSave.Enabled = True ' enable the save button
-    planetWidget.Zoom = sliGaugeSize.Value / 100
+    ElementWidget.Zoom = sliGaugeSize.Value / 100
 
     On Error GoTo 0
     Exit Sub
 
 sliGaugeSize_Change_Error:
 
-     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliGaugeSize_Change of Form planetPrefs"
+     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliGaugeSize_Change of Form posterPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -3383,7 +3382,7 @@ Private Sub sliOpacity_Change()
     On Error GoTo sliOpacity_Change_Error
 
     btnSave.Enabled = True ' enable the save button
-    planetWidget.opacity = sliOpacity.Value / 100
+    ElementWidget.opacity = sliOpacity.Value / 100
     gblPlOpacity = LTrim$(Str$(sliOpacity.Value))
 
     On Error GoTo 0
@@ -3391,7 +3390,7 @@ Private Sub sliOpacity_Change()
 
 sliOpacity_Change_Error:
 
-     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliOpacity_Change of Form planetPrefs"
+     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliOpacity_Change of Form posterPrefs"
 End Sub
 
 Private Sub sliOpacity_Click()
@@ -3518,7 +3517,7 @@ Public Sub setPrefsTooltips()
         imgFontsClicked.ToolTipText = "Opens the Fonts tab"
         imgGeneral.ToolTipText = "Opens the general tab"
         imgGeneralClicked.ToolTipText = "Opens the general tab"
-        lblPosition(6).ToolTipText = "Tablets only. Don't fiddle with this unless you really know what you are doing. Here you can choose whether this planet widget is hidden by default in either landscape or portrait mode or not at all. This option allows you to have certain widgets that do not obscure the screen in either landscape or portrait. If you accidentally set it so you can't find your widget on screen then change the setting here to NONE."
+        lblPosition(6).ToolTipText = "Tablets only. Don't fiddle with this unless you really know what you are doing. Here you can choose whether this Element widget is hidden by default in either landscape or portrait mode or not at all. This option allows you to have certain widgets that do not obscure the screen in either landscape or portrait. If you accidentally set it so you can't find your widget on screen then change the setting here to NONE."
         chkGenStartup.ToolTipText = "Check this box to enable the automatic start of the program when Windows is started."
         chkGaugeFunctions.ToolTipText = "When checked this box enables any functionality. Any adjustment takes place instantly. "
         txtPortraitYoffset.ToolTipText = "Field to hold the vertical offset for the widget position in portrait mode."
@@ -3545,12 +3544,12 @@ Public Sub setPrefsTooltips()
         chkPreventDragging.ToolTipText = "Checking this box turns off the ability to drag the program with the mouse. The locking in position effect takes place instantly."
         chkIgnoreMouse.ToolTipText = "Checking this box causes the program to ignore all mouse events."
         sliOpacity.ToolTipText = "Set the transparency of the program. Any change in opacity takes place instantly."
-        cmbScrollWheelDirection.ToolTipText = "To change the direction of the mouse scroll wheel when resiziing the planet gauge."
+        cmbScrollWheelDirection.ToolTipText = "To change the direction of the mouse scroll wheel when resiziing the Element gauge."
         chkEnableBalloonTooltips.ToolTipText = "Check the box to enable larger balloon tooltips for all controls on the main program"
         chkShowTaskbar.ToolTipText = "Check the box to show the widget in the taskbar"
         chkEnableTooltips.ToolTipText = "Check the box to enable tooltips for all controls on the main program"
-        sliGaugeSize.ToolTipText = "Adjust to a percentage of the original size. Any adjustment in size takes place instantly (you can also use Ctrl+Mousewheel hovering over the planet itself)."
-        'sliWidgetSkew.ToolTipText = "Adjust to a degree skew of the original position. Any adjustment in direction takes place instantly (you can also use the Mousewheel hovering over the planet itself."
+        sliGaugeSize.ToolTipText = "Adjust to a percentage of the original size. Any adjustment in size takes place instantly (you can also use Ctrl+Mousewheel hovering over the Element itself)."
+        'sliWidgetSkew.ToolTipText = "Adjust to a degree skew of the original position. Any adjustment in direction takes place instantly (you can also use the Mousewheel hovering over the Element itself."
         btnFacebook.ToolTipText = "This will link you to the our Steampunk/Dieselpunk program users Group."
         imgAbout.ToolTipText = "Opens the About tab"
         btnAboutDebugInfo.ToolTipText = "This gives access to the debugging tool"
@@ -3584,7 +3583,7 @@ Public Sub setPrefsTooltips()
         imgGeneralClicked.ToolTipText = vbNullString
         chkGenStartup.ToolTipText = vbNullString
         chkGaugeFunctions.ToolTipText = vbNullString
-        'cmbplanetSelection.ToolTipText = vbNullString
+        'cmbElementSelection.ToolTipText = vbNullString
         txtPortraitYoffset.ToolTipText = vbNullString
         txtPortraitHoffset.ToolTipText = vbNullString
         txtLandscapeVoffset.ToolTipText = vbNullString
@@ -3633,7 +3632,7 @@ Public Sub setPrefsTooltips()
 
 setPrefsTooltips_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setPrefsTooltips of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setPrefsTooltips of Form posterPrefs"
 
 End Sub
 '---------------------------------------------------------------------------------------
@@ -3655,7 +3654,7 @@ Public Sub DestroyToolTip()
 
 DestroyToolTip_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure DestroyToolTip of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure DestroyToolTip of Form posterPrefs"
 End Sub
 '---------------------------------------------------------------------------------------
 ' Procedure : loadPrefsAboutText
@@ -3679,7 +3678,7 @@ Private Sub loadPrefsAboutText()
 
 loadPrefsAboutText_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadPrefsAboutText of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadPrefsAboutText of Form posterPrefs"
     
 End Sub
 
@@ -3710,7 +3709,7 @@ Private Sub picButtonMouseUpEvent(ByVal thisTabName As String, ByRef thisPicName
     Call clearBorderStyle
 
     gblPlLastSelectedTab = thisTabName
-    sPutINISetting softwarePlanet, "lastSelectedTab", gblPlLastSelectedTab, gblPlSettingsFile
+    sPutINISetting softwareElement, "lastSelectedTab", gblPlLastSelectedTab, gblPlSettingsFile
 
     thisFraName.Visible = True
     thisFraButtonName.BorderStyle = 1
@@ -3735,7 +3734,7 @@ Private Sub picButtonMouseUpEvent(ByVal thisTabName As String, ByRef thisPicName
         padding = 200 ' add normal padding below the help button to position the bottom of the form
 
         lastFormHeight = btnHelp.Top + btnHelp.Height + captionHeight + borderWidth + padding
-        planetPrefs.Height = lastFormHeight
+        posterPrefs.Height = lastFormHeight
     End If
     
     If thisTabName = "about" Then
@@ -3751,7 +3750,7 @@ Private Sub picButtonMouseUpEvent(ByVal thisTabName As String, ByRef thisPicName
 
 picButtonMouseUpEvent_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure picButtonMouseUpEvent of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure picButtonMouseUpEvent of Form posterPrefs"
 
 End Sub
 
@@ -3811,7 +3810,7 @@ End Sub
 '        frmCount = frmCount + 1
 '        If frmCount >= 500 Then
 '            frmCount = 0
-'            planetPrefs.Refresh
+'            posterPrefs.Refresh
 '        End If
 '    Next useloop
 '
@@ -3820,7 +3819,7 @@ End Sub
 '
 'scrollFrameDownward_Error:
 '
-'    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure scrollFrameDownward of Form planetPrefs"
+'    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure scrollFrameDownward of Form posterPrefs"
 '
 'End Sub
 
@@ -3849,7 +3848,7 @@ Private Sub themeTimer_Timer()
 
 themeTimer_Timer_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure themeTimer_Timer of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure themeTimer_Timer of Form posterPrefs"
 
 End Sub
 
@@ -3870,7 +3869,7 @@ Private Sub mnuCoffee_Click()
     Exit Sub
 mnuCoffee_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuCoffee_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuCoffee_Click of Form posterPrefs"
 End Sub
 
 
@@ -3894,7 +3893,7 @@ mnuLicenceA_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuLicenceA_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuLicenceA_Click of Form posterPrefs"
             Resume Next
           End If
     End With
@@ -3921,7 +3920,7 @@ Private Sub mnuSupport_Click()
 
 mnuSupport_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuSupport_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuSupport_Click of Form posterPrefs"
 End Sub
 
 
@@ -3943,18 +3942,18 @@ Private Sub mnuAuto_Click()
     
    On Error GoTo mnuAuto_Click_Error
 
-    If planetPrefs.themeTimer.Enabled = True Then
+    If posterPrefs.themeTimer.Enabled = True Then
             MsgBox "Automatic Theme Selection is now Disabled"
-            planetPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
-            planetPrefs.mnuAuto.Checked = False
+            posterPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
+            posterPrefs.mnuAuto.Checked = False
             
-            planetPrefs.themeTimer.Enabled = False
+            posterPrefs.themeTimer.Enabled = False
     Else
             MsgBox "Auto Theme Selection Enabled. If the o/s theme changes the utility should automatically skin the utility to suit the theme."
-            planetPrefs.mnuAuto.Caption = "Auto Theme Enabled - Click to Disable"
-            planetPrefs.mnuAuto.Checked = True
+            posterPrefs.mnuAuto.Caption = "Auto Theme Enabled - Click to Disable"
+            posterPrefs.mnuAuto.Checked = True
             
-            planetPrefs.themeTimer.Enabled = True
+            posterPrefs.themeTimer.Enabled = True
             Call setThemeColour
     End If
 
@@ -3963,7 +3962,7 @@ Private Sub mnuAuto_Click()
 
 mnuAuto_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuAuto_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuAuto_Click of Form posterPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -3976,11 +3975,11 @@ End Sub
 Private Sub mnuDark_Click()
    On Error GoTo mnuDark_Click_Error
 
-    planetPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
-    planetPrefs.mnuAuto.Checked = False
-    planetPrefs.mnuDark.Caption = "Dark Theme Enabled"
-    planetPrefs.mnuLight.Caption = "Light Theme Enable"
-    planetPrefs.themeTimer.Enabled = False
+    posterPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
+    posterPrefs.mnuAuto.Checked = False
+    posterPrefs.mnuDark.Caption = "Dark Theme Enabled"
+    posterPrefs.mnuLight.Caption = "Light Theme Enable"
+    posterPrefs.themeTimer.Enabled = False
     
     gblPlSkinTheme = "dark"
 
@@ -3991,7 +3990,7 @@ Private Sub mnuDark_Click()
 
 mnuDark_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuDark_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuDark_Click of Form posterPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -4005,11 +4004,11 @@ Private Sub mnuLight_Click()
     'MsgBox "Auto Theme Selection Manually Disabled"
    On Error GoTo mnuLight_Click_Error
     
-    planetPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
-    planetPrefs.mnuAuto.Checked = False
-    planetPrefs.mnuDark.Caption = "Dark Theme Enable"
-    planetPrefs.mnuLight.Caption = "Light Theme Enabled"
-    planetPrefs.themeTimer.Enabled = False
+    posterPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
+    posterPrefs.mnuAuto.Checked = False
+    posterPrefs.mnuDark.Caption = "Dark Theme Enable"
+    posterPrefs.mnuLight.Caption = "Light Theme Enabled"
+    posterPrefs.themeTimer.Enabled = False
     
     gblPlSkinTheme = "light"
 
@@ -4020,7 +4019,7 @@ Private Sub mnuLight_Click()
 
 mnuLight_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuLight_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuLight_Click of Form posterPrefs"
 End Sub
 
 
@@ -4042,10 +4041,10 @@ Private Sub setThemeShade(ByVal redC As Integer, ByVal greenC As Integer, ByVal 
 
     ' RGB(redC, greenC, blueC) is the background colour used by the lighter themes
     
-    planetPrefs.BackColor = RGB(redC, greenC, blueC)
+    posterPrefs.BackColor = RGB(redC, greenC, blueC)
     
     ' all buttons must be set to graphical
-    For Each ctrl In planetPrefs.Controls
+    For Each ctrl In posterPrefs.Controls
         If (TypeOf ctrl Is CommandButton) Or (TypeOf ctrl Is CheckBox) Or (TypeOf ctrl Is Label) Or (TypeOf ctrl Is OptionButton) Or (TypeOf ctrl Is Frame) Then
           ctrl.BackColor = RGB(redC, greenC, blueC)
         End If
@@ -4053,28 +4052,28 @@ Private Sub setThemeShade(ByVal redC As Integer, ByVal greenC As Integer, ByVal 
     
     If redC = 212 Then
         'classicTheme = True
-        planetPrefs.mnuLight.Checked = False
-        planetPrefs.mnuDark.Checked = True
+        posterPrefs.mnuLight.Checked = False
+        posterPrefs.mnuDark.Checked = True
         
         Call setIconImagesDark
         
     Else
         'classicTheme = False
-        planetPrefs.mnuLight.Checked = True
-        planetPrefs.mnuDark.Checked = False
+        posterPrefs.mnuLight.Checked = True
+        posterPrefs.mnuDark.Checked = False
         
         Call setIconImagesLight
                 
     End If
     
     'now change the color of the sliders.
-    'planetPrefs.sliplanetSelection.BackColor = RGB(redC, greenC, blueC)
-    'planetPrefs.'sliWidgetSkew.BackColor = RGB(redC, greenC, blueC)
-    planetPrefs.sliGaugeSize.BackColor = RGB(redC, greenC, blueC)
-    planetPrefs.sliOpacity.BackColor = RGB(redC, greenC, blueC)
-    planetPrefs.txtAboutText.BackColor = RGB(redC, greenC, blueC)
+    'posterPrefs.sliElementSelection.BackColor = RGB(redC, greenC, blueC)
+    'posterPrefs.'sliWidgetSkew.BackColor = RGB(redC, greenC, blueC)
+    posterPrefs.sliGaugeSize.BackColor = RGB(redC, greenC, blueC)
+    posterPrefs.sliOpacity.BackColor = RGB(redC, greenC, blueC)
+    posterPrefs.txtAboutText.BackColor = RGB(redC, greenC, blueC)
     
-    sPutINISetting softwarePlanet, "skinTheme", gblPlSkinTheme, gblPlSettingsFile ' now saved to the toolsettingsfile
+    sPutINISetting softwareElement, "skinTheme", gblPlSkinTheme, gblPlSettingsFile ' now saved to the toolsettingsfile
 
     On Error GoTo 0
     Exit Sub
@@ -4114,13 +4113,13 @@ Private Sub setThemeColour()
         SysClr = GetSysColor(COLOR_BTNFACE)
         gblPlSkinTheme = "dark"
         
-        planetPrefs.mnuDark.Caption = "Dark Theme Enabled"
-        planetPrefs.mnuLight.Caption = "Light Theme Enable"
+        posterPrefs.mnuDark.Caption = "Dark Theme Enabled"
+        posterPrefs.mnuLight.Caption = "Light Theme Enable"
 
     Else
         Call setModernThemeColours
-        planetPrefs.mnuDark.Caption = "Dark Theme Enable"
-        planetPrefs.mnuLight.Caption = "Light Theme Enabled"
+        posterPrefs.mnuDark.Caption = "Dark Theme Enable"
+        posterPrefs.mnuLight.Caption = "Light Theme Enabled"
     End If
 
     storeThemeColour = SysClr
@@ -4151,7 +4150,7 @@ Private Sub adjustPrefsTheme()
     Else
         If classicThemeCapable = True Then
             mnuAuto.Caption = "Auto Theme Enabled - Click to Disable"
-            planetPrefs.themeTimer.Enabled = True
+            posterPrefs.themeTimer.Enabled = True
         Else
             gblPlSkinTheme = "light"
             Call setModernThemeColours
@@ -4163,7 +4162,7 @@ Private Sub adjustPrefsTheme()
 
 adjustPrefsTheme_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustPrefsTheme of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustPrefsTheme of Form posterPrefs"
     
 End Sub
 
@@ -4180,7 +4179,7 @@ Private Sub setModernThemeColours()
     
     On Error GoTo setModernThemeColours_Error
     
-    'planetPrefs.mnuAuto.Caption = "Auto Theme Selection Cannot be Enabled"
+    'posterPrefs.mnuAuto.Caption = "Auto Theme Selection Cannot be Enabled"
 
     'MsgBox "Windows Alternate Theme detected"
     SysClr = GetSysColor(COLOR_BTNFACE)
@@ -4353,7 +4352,7 @@ Private Sub loadHigherResImages()
         topIconWidth = 1010
     End If
     
-    If planetPrefs.mnuDark.Checked = True Then
+    If posterPrefs.mnuDark.Checked = True Then
         Call setIconImagesDark
     Else
         Call setIconImagesLight
@@ -4364,7 +4363,7 @@ Private Sub loadHigherResImages()
 
 loadHigherResImages_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadHigherResImages of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadHigherResImages of Form posterPrefs"
 End Sub
 '---------------------------------------------------------------------------------------
 ' Procedure : positionTimer_Timer
@@ -4384,7 +4383,7 @@ Private Sub positionTimer_Timer()
 
 positionTimer_Timer_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure positionTimer_Timer of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure positionTimer_Timer of Form posterPrefs"
 End Sub
 
 
@@ -4409,8 +4408,8 @@ Private Sub chkEnableResizing_Click()
         dynamicSizingFlg = False
         txtPrefsFontCurrentSize.Visible = False
         lblCurrentFontsTab.Visible = False
-        Unload planetPrefs
-        planetPrefs.show
+        Unload posterPrefs
+        posterPrefs.show
         Call readPrefsPosition
         chkEnableResizing.Caption = "Enable Corner Resizing"
     End If
@@ -4422,7 +4421,7 @@ Private Sub chkEnableResizing_Click()
 
 chkEnableResizing_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkEnableResizing_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkEnableResizing_Click of Form posterPrefs"
 
 End Sub
 
@@ -4478,7 +4477,7 @@ Private Sub setframeHeights()
 
 setframeHeights_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setframeHeights of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setframeHeights of Form posterPrefs"
 End Sub
 
 
@@ -4498,31 +4497,31 @@ Private Sub setIconImagesDark()
     
     resourcePath = App.Path & "\resources\images"
 
-    If fFExists(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg") Then posterPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg") Then posterPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg") Then posterPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg") Then posterPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg") Then posterPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg") Then posterPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg") Then posterPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg") Then posterPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg")
     
     ' I may yet create clicked versions of all the icons but not now!
-    If fFExists(resourcePath & "\config-icon-dark-600-clicked.jpg") Then planetPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\general-icon-dark-600-clicked.jpg") Then planetPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\position-icon-dark-600-clicked.jpg") Then planetPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\font-icon-dark-600-clicked.jpg") Then planetPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\development-icon-dark-600-clicked.jpg") Then planetPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\sounds-icon-dark-600-clicked.jpg") Then planetPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\windows-icon-dark-600-clicked.jpg") Then planetPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\about-icon-dark-600-clicked.jpg") Then planetPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\config-icon-dark-600-clicked.jpg") Then posterPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\general-icon-dark-600-clicked.jpg") Then posterPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\position-icon-dark-600-clicked.jpg") Then posterPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\font-icon-dark-600-clicked.jpg") Then posterPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\development-icon-dark-600-clicked.jpg") Then posterPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\sounds-icon-dark-600-clicked.jpg") Then posterPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\windows-icon-dark-600-clicked.jpg") Then posterPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\about-icon-dark-600-clicked.jpg") Then posterPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-dark-600-clicked.jpg")
 
    On Error GoTo 0
    Exit Sub
 
 setIconImagesDark_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesDark of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesDark of Form posterPrefs"
 
 End Sub
 
@@ -4542,31 +4541,31 @@ Private Sub setIconImagesLight()
     
     resourcePath = App.Path & "\resources\images"
     
-    If fFExists(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg") Then posterPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg") Then posterPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg") Then posterPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg") Then posterPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg") Then posterPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg") Then posterPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg") Then posterPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg") Then posterPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg")
     
     ' I may yet create clicked versions of all the icons but not now!
-    If fFExists(resourcePath & "\config-icon-light-600-clicked.jpg") Then planetPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\general-icon-light-600-clicked.jpg") Then planetPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\position-icon-light-600-clicked.jpg") Then planetPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\font-icon-light-600-clicked.jpg") Then planetPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\development-icon-light-600-clicked.jpg") Then planetPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\sounds-icon-light-600-clicked.jpg") Then planetPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\windows-icon-light-600-clicked.jpg") Then planetPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\about-icon-light-600-clicked.jpg") Then planetPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\config-icon-light-600-clicked.jpg") Then posterPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\general-icon-light-600-clicked.jpg") Then posterPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\position-icon-light-600-clicked.jpg") Then posterPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\font-icon-light-600-clicked.jpg") Then posterPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\development-icon-light-600-clicked.jpg") Then posterPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\sounds-icon-light-600-clicked.jpg") Then posterPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\windows-icon-light-600-clicked.jpg") Then posterPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\about-icon-light-600-clicked.jpg") Then posterPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-light-600-clicked.jpg")
 
    On Error GoTo 0
    Exit Sub
 
 setIconImagesLight_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesLight of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesLight of Form posterPrefs"
 
 End Sub
 

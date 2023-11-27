@@ -94,10 +94,10 @@ Private Sub revealWidgetTimer_Timer()
     revealWidgetTimerCount = revealWidgetTimerCount + 1
     If revealWidgetTimerCount >= (minutesToHide * 12) Then
         revealWidgetTimerCount = 0
-        planetWidget.Hidden = False
+        ElementWidget.Hidden = False
         revealWidgetTimer.Enabled = False
         gblPlWidgetHidden = "0"
-        sPutINISetting softwarePlanet, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
+        sPutINISetting softwareElement, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
     End If
 
     On Error GoTo 0
@@ -163,11 +163,11 @@ Private Sub settingsTimer_Timer()
     
     On Error GoTo settingsTimer_Timer_Error
 
-    gblPlUnhide = fGetINISetting(softwarePlanet, "unhide", gblPlSettingsFile)
+    gblPlUnhide = fGetINISetting(softwareElement, "unhide", gblPlSettingsFile)
 
     If gblPlUnhide = "true" Then
-        planetWidget.Hidden = False
-        sPutINISetting softwarePlanet, "unhide", vbNullString, gblPlSettingsFile
+        ElementWidget.Hidden = False
+        sPutINISetting softwareElement, "unhide", vbNullString, gblPlSettingsFile
     End If
 
     On Error GoTo 0

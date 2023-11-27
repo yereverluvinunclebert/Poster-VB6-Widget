@@ -22,8 +22,8 @@ Option Explicit
 
 Public WithEvents aboutForm As cWidgetForm
 Attribute aboutForm.VB_VarHelpID = -1
-Public WithEvents planetForm As cWidgetForm
-Attribute planetForm.VB_VarHelpID = -1
+Public WithEvents ElementForm As cWidgetForm
+Attribute ElementForm.VB_VarHelpID = -1
 
 
 '---------------------------------------------------------------------------------------
@@ -40,19 +40,19 @@ Public Sub InitAndShowAsFreeForm(ByVal X As Long, ByVal Y As Long, Optional ByVa
     On Error GoTo InitAndShowAsFreeForm_Error
     
     ' create an invisible form using a Cairo Widget Form with the predefined caption and location
-    Set planetForm = Cairo.WidgetForms.Create(WFFStyleTool, Caption, , 1200, 1200)
+    Set ElementForm = Cairo.WidgetForms.Create(WFFStyleTool, Caption, , 1200, 1200)
     
     ' make the form transparent
-    planetForm.WidgetRoot.BackColor = -1
+    ElementForm.WidgetRoot.BackColor = -1
 
-    ' create a new planet widget with a name, location and width, runs Class_Initialize
-    Set planetWidget = planetForm.Widgets.Add(New cwPlanet, "planet widget", 0, 0, 1000, 1000)
+    ' create a new Element widget with a name, location and width, runs Class_Initialize
+    Set ElementWidget = ElementForm.Widgets.Add(New cwPoster, "Element widget", 0, 0, 1000, 1000)
         
     ' I do not 'get' the size/position relationship between the form and the widget on the form. Seems peculiar to me.
       
     'NOTE that when you move a widget by dragging, you are moving the invisible form it is drawn upon.
-    planetForm.Move X, Y ' position the form & display it
-    planetForm.Load
+    ElementForm.Move X, Y ' position the form & display it
+    ElementForm.Load
     
     ' set the z-ordering of the main form
     Call setWindowZordering
@@ -63,7 +63,7 @@ Public Sub InitAndShowAsFreeForm(ByVal X As Long, ByVal Y As Long, Optional ByVa
     ' make the about form transparent
     aboutForm.WidgetRoot.BackColor = -1
          
-    ' create a new planet widget with a name and location, first step of that is to run Class_Initialize
+    ' create a new Element widget with a name and location, first step of that is to run Class_Initialize
     Set aboutWidget = aboutForm.Widgets.Add(New cwAbout, "about", 0, 0, 470, 670)
 
    On Error GoTo 0
@@ -75,17 +75,17 @@ InitAndShowAsFreeForm_Error:
     
 End Sub
 '---------------------------------------------------------------------------------------
-' Procedure : planetForm_DblClick
+' Procedure : ElementForm_DblClick
 ' Author    : beededea
 ' Date      : 05/05/2023
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Public Sub planetForm_DblClick()
+Public Sub ElementForm_DblClick()
     Dim userprof As String: userprof = vbNullString
     Dim thisCommand As String: thisCommand = vbNullString
     
-    On Error GoTo planetForm_DblClick_Error
+    On Error GoTo ElementForm_DblClick_Error
 
     If LTrim$(gblPlDblClickCommand) = vbNullString Then Exit Sub
     
@@ -104,110 +104,110 @@ Public Sub planetForm_DblClick()
     
     If SHIFT_1 = True Then
         SHIFT_1 = False
-        Call ShellExecute(fMain.planetForm.hwnd, "Open", gblPlOpenFile, vbNullString, App.Path, 1)
+        Call ShellExecute(fMain.ElementForm.hwnd, "Open", gblPlOpenFile, vbNullString, App.Path, 1)
     Else
-        Call ShellExecute(fMain.planetForm.hwnd, "runas", thisCommand, vbNullString, App.Path, 1)
+        Call ShellExecute(fMain.ElementForm.hwnd, "runas", thisCommand, vbNullString, App.Path, 1)
     End If
 
     On Error GoTo 0
     Exit Sub
 
-planetForm_DblClick_Error:
+ElementForm_DblClick_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure planetForm_DblClick of Class Module cfMain"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure ElementForm_DblClick of Class Module cfMain"
             Resume Next
           End If
     End With
 End Sub
 
  
-'Private Sub planetForm_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+'Private Sub ElementForm_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
 '        'If pinClicked = True Then MsgBox "X = " & x & " Y = " & y & " pinClicked = " & pinClicked
 '
 'End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : planetForm_MouseMove
+' Procedure : ElementForm_MouseMove
 ' Author    : beededea
 ' Date      : 05/05/2023
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub planetForm_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    On Error GoTo planetForm_MouseMove_Error
+Private Sub ElementForm_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    On Error GoTo ElementForm_MouseMove_Error
 
-    If planetWidget.Locked = True Then Exit Sub
+    If ElementWidget.Locked = True Then Exit Sub
     If gblPlIgnoreMouse = "1" Then Exit Sub
     
     Static x0 As Single
     Static y0 As Single
-    If Button Then planetForm.Move planetForm.Left + X - x0, planetForm.Top + Y - y0 Else x0 = X: y0 = Y
+    If Button Then ElementForm.Move ElementForm.Left + X - x0, ElementForm.Top + Y - y0 Else x0 = X: y0 = Y
 
     On Error GoTo 0
     Exit Sub
 
-planetForm_MouseMove_Error:
+ElementForm_MouseMove_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure planetForm_MouseMove of Class Module cfMain"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure ElementForm_MouseMove of Class Module cfMain"
             Resume Next
           End If
     End With
 End Sub
 '---------------------------------------------------------------------------------------
-' Procedure : planetForm_KeyDown
+' Procedure : ElementForm_KeyDown
 ' Author    : beededea
 ' Date      : 01/06/2019
 ' Purpose   : get F5 and SHIFT keypresses
 '---------------------------------------------------------------------------------------
 '
-Private Sub planetForm_KeyDown(ByRef KeyCode As Integer, ByRef Shift As Integer)
-    On Error GoTo planetForm_KeyDown_Error
+Private Sub ElementForm_KeyDown(ByRef KeyCode As Integer, ByRef Shift As Integer)
+    On Error GoTo ElementForm_KeyDown_Error
 
     Call getKeyPress(KeyCode, Shift)
 
     On Error GoTo 0
     Exit Sub
 
-planetForm_KeyDown_Error:
+ElementForm_KeyDown_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure planetForm_KeyDown of Class Module cfMain"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure ElementForm_KeyDown of Class Module cfMain"
 End Sub
 '
 '---------------------------------------------------------------------------------------
-' Procedure : planetForm_MouseUp
+' Procedure : ElementForm_MouseUp
 ' Author    : beededea
 ' Date      : 05/05/2023
-' Purpose   : save the form x,y position when ever the planet/form is dragged
+' Purpose   : save the form x,y position when ever the Element/form is dragged
 '---------------------------------------------------------------------------------------
 '
-Private Sub planetForm_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    On Error GoTo planetForm_MouseUp_Error
+Private Sub ElementForm_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    On Error GoTo ElementForm_MouseUp_Error
     
-    If planetWidget.Locked = True Then Exit Sub
+    If ElementWidget.Locked = True Then Exit Sub
     
     ' no point in saving when prefs are visible.
-    If planetPrefs.IsVisible = False Then ' checks without activating the form - important!.
-       gblPlMaximiseFormX = Str$(planetForm.Left) ' saving in pixels
-       gblPlMaximiseFormY = Str$(planetForm.Top)
+    If posterPrefs.IsVisible = False Then ' checks without activating the form - important!.
+       gblPlMaximiseFormX = Str$(ElementForm.Left) ' saving in pixels
+       gblPlMaximiseFormY = Str$(ElementForm.Top)
        
-       sPutINISetting softwarePlanet, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
-       sPutINISetting softwarePlanet, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
+       sPutINISetting softwareElement, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
+       sPutINISetting softwareElement, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
     End If
     
-    'Static x0, y0: If Button Then planetForm.Move planetForm.Left + X - x0, planetForm.Top + Y - y0 Else x0 = X: y0 = Y
+    'Static x0, y0: If Button Then ElementForm.Move ElementForm.Left + X - x0, ElementForm.Top + Y - y0 Else x0 = X: y0 = Y
 
     On Error GoTo 0
     Exit Sub
 
-planetForm_MouseUp_Error:
+ElementForm_MouseUp_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure planetForm_MouseUp of Class Module cfMain"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure ElementForm_MouseUp of Class Module cfMain"
             Resume Next
           End If
     End With
