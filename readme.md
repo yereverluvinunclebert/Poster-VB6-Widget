@@ -1,16 +1,16 @@
 # Poster-Widget-VB6
-The Steampunk Poster Desktop Widget, written in VB6 for Windows and ReactOS. Created for XP, Vista, Win7, 8, 10/11+, ReactOS as well as Linux or the Apple Mac's OS/X with Wine. This Poster Desktop Widget is an attractive and steamy VB6 widget for your desktop. This VB6 widget provides a simple moveable marble globe complete with rings
+The Steampunk Poster Desktop Widget, written in VB6 for Windows and ReactOS. Created for XP, Vista, Win7, 8, 10/11+, ReactOS as well as Linux or the Apple Mac's OS/X with Wine. This Poster Desktop Widget is an attractive and steamy VB6 widget for your desktop.
 
 ![poster](https://github.com/yereverluvinunclebert/Poster-VB6-Widget/assets/2788342/e248af44-effc-4145-ba04-1a9b7ad4301a)
 
-The others are the Uranus, Jupiter, Saturn and of course, 'God of War', the planet Mars. 
-Double-clicking on the planet will cause a personalised Windows application 
-to fire up. The first time you run it there will be no assigned function and so 
-it will state as such - then it will pop up the preferences so that you can enter 
+
+This is a simple RC/VB6 widget based upon one of my old Yahoo widgets, little more than a glorified desktop icon really. 
+The first time you run it there will be no assigned function and so 
+it will state as such - then it will pop up the preferences so that you can enter  
 the command of your choice. The widget takes command line-style commands for
 windows.
 
-This is a simple RC/VB6 widget based upon one of my old Yahoo widgets, little more than a glorified desktop icon really. Just an image of a planetary body that responds to a double-click to open an application you choose to assign. A bit of background: The Yahoo widget SDK came with a Photoshop conversion script that could take any image and create a desktop widget within 30 seconds. This meant that you could create eye-candy desktop widgets with ease in just a few clicks. This planetary red widget is a VB6 version of one of those, demonstrating the principle of creating such a desktop widget using VB6.
+Why? This is just an example of how to take any image and create a simple VB6/RC5 application with no visible form and a transparent background. With this code you can put any image on the desktop so that it responds to a double-click to open an application you choose to assign. A bit of background: The Yahoo widget SDK came with a Photoshop conversion script that could take any image and create a desktop widget within 30 seconds. This meant that you could create eye-candy desktop widgets with ease in just a few clicks. This poster widget is an approximate equivalent, VB6 version of one of those, demonstrating the principle of creating such a desktop widget but this time using VB6.
 
  ![vb6-logo-200](https://github.com/yereverluvinunclebert/Panzer-JustClock-VB6/assets/2788342/7986e544-0b94-4a10-90bb-2d9fb60c294a)
  
